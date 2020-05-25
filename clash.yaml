@@ -118,25 +118,79 @@ Proxy:
 
 
 # 配置开始
-- name: "V2ray节点的主机测试"
+- name: "1香港V2ray"
   type: vmess
-  server: v2rayssr.com
+  server: www.520anwen.tk
   port: 443
-  uuid: 5b8098e0-c95d-4c74-b5d5-4a330969c8cb
+  uuid: 479a584a-23de-42ba-b988-337370564a21
   alterId: 2
   cipher: auto
   tls: true
   network: ws
-  ws-path: /v2rayssrcom/
-  Host: v2rayssr.com
+  ws-path: /ccae1fec/
+  Host: www.520anwen.tk
 
-- name: "Trojan节点的主机测试"
-  type: trojan
-  server: www.v2rayssr.com
+- name: "2香港V2ray"
+  type: vmess
+  server: www.520anwen.ml
   port: 443
-  password: v2rayssr.com
+  uuid: d6504e29-81fc-4658-a5b7-ff82e820ed30
+  alterId: 2
+  cipher: auto
+  tls: true
+  network: ws
+  ws-path: /d09a5626/
+  Host: www.520anwen.ml
 
- 
+- name: "香港Trojan"
+  type: trojan
+  server: www.520anwen.cf
+  port: 443
+  password: xl8023
+
+- name: "台湾V2ray"
+  type: vmess
+  server: www.520jie.ml
+  port: 443
+  uuid: c2801687-9b02-42a3-a60f-e09dbe695ee9
+  alterId: 2
+  cipher: auto
+  tls: true
+  network: ws
+  ws-path: /8e82e4d2/
+  Host: www.520jie.ml
+
+- name: "台湾Trojan"
+  type: trojan
+  server: www.520jie.cf
+  port: 443
+  password: xl8023
+
+- name: "日本V2ray"
+  type: vmess
+  server: www.520jie.gq
+  port: 443
+  uuid: f3a7c7b3-24b0-46df-a8ea-bcffddae1a15
+  alterId: 2
+  cipher: auto
+  tls: true
+  network: ws
+  ws-path: /c04ca0c7/
+  Host: www.520jie.gq
+
+- name: "日本Trojan"
+  type: trojan
+  server: www.520jie.ga
+  port: 443
+  password: xl8023
+  
+- name: "美国Trojan"
+  type: trojan
+  server: www.520anwen.ga
+  port: 443
+  password: xl8023
+  
+  
 ###############################################################配置分割线
 
 # 代理组策略
@@ -146,8 +200,14 @@ Proxy Group:
 - name: "自动节点选择"
   type: url-test
   proxies:
-    - "V2ray节点的主机测试"
-    - "Trojan节点的主机测试"
+    - "1香港V2ray"
+    - "2香港V2ray"
+    - "香港Trojan"
+    - "台湾V2ray"
+    - "台湾Trojan"
+    - "日本V2ray"
+    - "日本Trojan"
+    - "美国Trojan"    
   url: 'http://www.gstatic.com/generate_204'
   interval: 300
 
@@ -155,9 +215,14 @@ Proxy Group:
 - name: "PROXY"
   type: select
   proxies:
-    - "自动节点选择"
-    - "V2ray节点的主机测试"
-    - "Trojan节点的主机测试"
+    - "1香港V2ray"
+    - "2香港V2ray"
+    - "香港Trojan"
+    - "台湾V2ray"
+    - "台湾Trojan"
+    - "日本V2ray"
+    - "日本Trojan"
+    - "美国Trojan" 
 # 白名单模式 PROXY，黑名单模式 DIRECT
 - name: "Final"
   type: select
@@ -175,15 +240,27 @@ Proxy Group:
   type: select
   proxies:
     - "PROXY"
-    - "V2ray节点的主机测试"
-    - "Trojan节点的主机测试"
+    - "1香港V2ray"
+    - "2香港V2ray"
+    - "香港Trojan"
+    - "台湾V2ray"
+    - "台湾Trojan"
+    - "日本V2ray"
+    - "日本Trojan"
+    - "美国Trojan" 
 # 大陆流媒体面向港澳台限定服务
 - name: "HKMTMedia"
   type: select
   proxies:
     - "DIRECT"
-    - "V2ray节点的主机测试"
-    - "Trojan节点的主机测试"
+    - "1香港V2ray"
+    - "2香港V2ray"
+    - "香港Trojan"
+    - "台湾V2ray"
+    - "台湾Trojan"
+    - "日本V2ray"
+    - "日本Trojan"
+    - "美国Trojan" 
 # 运营商及声名狼藉网站劫持
 - name: "Hijacking"
   type: select
